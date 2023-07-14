@@ -11,3 +11,16 @@ c:\users\jang mingwan\documents\visual studio 2015\Projects\Notebook\Notebook\bi
 c:\users\jang mingwan\documents\visual studio 2015\Projects\Notebook\Notebook\obj\Debug\Notebook.FrmFindReplace.resources
 c:\users\jang mingwan\documents\visual studio 2015\Projects\Notebook\Notebook\obj\Debug\Notebook.FrmMain.resources
 C:\Users\Jang MinGwan\Documents\Visual Studio 2015\Projects\Notebook\Notebook\obj\Debug\Notebook.FrmFont.resources
+E:\Window_Notebook\Notebook\bin\Debug\Notebook.exe.config
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.exe
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.pdb
+E:\Window_Notebook\Notebook\bin\Debug\Notebook.exe
+E:\Window_Notebook\Notebook\bin\Debug\Notebook.pdb
+E:\Window_Notebook\Notebook\bin\Debug\Magick.NET-AnyCPU.dll
+E:\Window_Notebook\Notebook\bin\Debug\Magick.NET-AnyCPU.xml
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.csprojResolveAssemblyReference.cache
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.FrmFindReplace.resources
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.FrmFont.resources
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.FrmMain.resources
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.Properties.Resources.resources
+E:\Window_Notebook\Notebook\obj\Debug\Notebook.csproj.GenerateResource.Cache

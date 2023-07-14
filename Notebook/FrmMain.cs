@@ -257,12 +257,12 @@ namespace Notebook
             return resizedImage;
         }
 
-        private string GetRtfFromImage(byte[] imageBytes, int width, int height)
-        {
-            string hexImage = BitConverter.ToString(imageBytes).Replace("-", string.Empty);
-            string rtf = $"{{\\rtf1\\ansi\\deff0{{\\pict\\pngblip\\picw{width}\\pich{height}\\picwgoal{width}\\pichgoal{height}\n{hexImage}}}}}";
-            return rtf;
-        }
+        //private string GetRtfFromImage(byte[] imageBytes, int width, int height)
+        //{
+        //    string hexImage = BitConverter.ToString(imageBytes).Replace("-", string.Empty);
+        //    string rtf = $"{{\\rtf1\\ansi\\deff0{{\\pict\\pngblip\\picw{width}\\pich{height}\\picwgoal{width}\\pichgoal{height}\n{hexImage}}}}}";
+        //    return rtf;
+        //}
 
         #endregion
 
@@ -421,25 +421,6 @@ namespace Notebook
         /// <param name="e"></param>
         private void btnPaiste_Click(object sender, EventArgs e)
         {
-            //if (Clipboard.ContainsImage())
-            //{
-            //    Image image = Clipboard.GetImage();
-
-            //    int maxWidth = rtxtMemo.Width;
-            //    int maxHeight = rtxtMemo.Height;
-
-            //    Image resizedImage = ResizeImage(image, maxWidth, maxHeight);
-
-            //    using (MemoryStream ms = new MemoryStream())
-            //    {
-            //        resizedImage.Save(ms, ImageFormat.Png);
-            //        string rtf = GetRtfFromImage(ms.ToArray(), maxWidth, maxHeight);
-            //        rtxtMemo.SelectedRtf = rtf;
-            //    }
-
-            //}
-            //else
-            //{
             IDataObject clipboardData = Clipboard.GetDataObject();
             string[] formats = clipboardData.GetFormats();
 
@@ -452,7 +433,26 @@ namespace Notebook
                 }
                 else if(format == DataFormats.Bitmap)
                 {
+                    Image image = Clipboard.GetImage();
+                    if (image != null)
+                    {
+                        int ratio = image.Width / image.Height;
 
+                        double rtxRatio = 0;
+                        if (ratio >= 1)
+                        {
+                            rtxRatio = (double)rtxtMemo.Width / (double)image.Width;
+                            Clipboard.SetData("Bitmap", ResizeImage(image, rtxtMemo.Width, (int)Math.Round(image.Height * rtxRatio)));
+                        }
+                        else
+                        {
+                            rtxRatio = (double) rtxtMemo.Height / (double) image.Height;
+                            Clipboard.SetData("Bitmap", ResizeImage(image, (int)Math.Round(image.Width * rtxRatio), rtxtMemo.Height));
+                        }
+
+                        rtxtMemo.Paste();
+                        return;
+                    }
                 }
             }
 
